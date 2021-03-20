@@ -25,7 +25,11 @@ const RegisterForm = () => {
         email: '',
         success: false,
         error: '',
+        password:'',
+        confirmPassword:''
     });
+
+
 
     const [newUser, setNewUser] = useState(true);
     const [logInUser, setLogInUser] = useContext(UseContext)
@@ -33,6 +37,7 @@ const RegisterForm = () => {
     const history = useHistory();
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };
+    const [errors, setErrors] = useState(false)
 
     //GoogleSignIn 
     const handleGoogleSignIn = () => {
@@ -89,7 +94,7 @@ const RegisterForm = () => {
 
         if (e.target.name === "password" && e.target.name === "confirmPassword") {
             isValid = e.target.value.length > 6;
-            console.log(isValid);
+
         }
 
         if (isValid) {
@@ -99,9 +104,19 @@ const RegisterForm = () => {
         }
     }
 
-    // Sign Up With e $ p
+
+    // Sign Up With email and password
     const handleSubmit = (e) => {
-        if (newUser && user.email && user.password) {
+
+        if (user.password !== user.confirmPassword ) {
+            setErrors(true);
+        }
+
+        else if (user.password === user.confirmPassword) {
+            setErrors(false);
+        }
+
+        if (newUser && user.email && user.password === user.confirmPassword) {
 
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
                 .then((userCredential) => {
@@ -110,6 +125,7 @@ const RegisterForm = () => {
                     setUser(signUpUser);
                     updateUserNameHandler(user.name);
                 })
+
                 .catch((error) => {
                     var errorCode = error.code;
                     var errorMessage = error.message;
@@ -135,13 +151,14 @@ const RegisterForm = () => {
                     history.replace(from);
                 })
                 .catch((error) => {
+                    setErrors(false)
                     var errorCode = error.code;
                     var errorMessage = error.message;
                     const userInfo = { ...user }
                     userInfo.success = false;
                     userInfo.error = errorMessage;
                     setUser(userInfo);
-                    console.log(errorCode, errorMessage);
+                    
                 });
 
         }
@@ -156,7 +173,6 @@ const RegisterForm = () => {
             displayName: name,
         })
             .then(function () {
-                console.log("success");
             }).catch(function (error) {
 
             });
@@ -167,6 +183,9 @@ const RegisterForm = () => {
             <div className="error-handle">
                 {
                     user.success && <h3 > Sign Up has been successful.</h3>
+                }
+                {
+                    errors && <p style={{ color: 'red' }}>Password Don't Match</p>
                 }
                 <p>{user.error}</p>
             </div>
@@ -185,12 +204,11 @@ const RegisterForm = () => {
                                 <Form.Control name="confirmPassword" onBlur={handleBlur} type="password" placeholder="
                                       Confirm Password" required /> <br />
 
-
                                 <input type="submit" className="btn btn-warning" value="Create an account" /> <br /><br />
                                 <p>Already have an account ? <span className="login" onClick={() => setNewUser(false)}>Login</span></p>
                             </div> :
                             <div>
-                                <Form.Control name="email" onBlur={handleBlur} type="text" placeholder="Enter email" required /> <br />
+                                <Form.Control name="email" onBlur={handleBlur} type="email" placeholder="Enter email" required /> <br />
                                 <Form.Control name="password" onBlur={handleBlur} type="password" placeholder="Password" required /> <br />
 
                                 <input type="submit" className="btn btn-warning" value="Log In" /><br /><br />
