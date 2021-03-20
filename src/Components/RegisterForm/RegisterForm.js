@@ -23,7 +23,7 @@ const RegisterForm = () => {
     const [user, setUser] = useState({
         name: '',
         email: '',
-        success: false,
+        success: '',
         error: '',
         password:'',
         confirmPassword:''
@@ -106,15 +106,17 @@ const RegisterForm = () => {
 
 
     // Sign Up With email and password
+    
     const handleSubmit = (e) => {
 
-        if (user.password !== user.confirmPassword ) {
-            setErrors(true);
+        if (newUser && user.password !== user.confirmPassword ) {    
+            setErrors(true)
         }
-
+        
         else if (user.password === user.confirmPassword) {
-            setErrors(false);
+            setErrors(false)
         }
+        
 
         if (newUser && user.email && user.password === user.confirmPassword) {
 
@@ -124,13 +126,14 @@ const RegisterForm = () => {
                     const signUpUser = { name: displayName, email: email, success: true };
                     setUser(signUpUser);
                     updateUserNameHandler(user.name);
+                   
                 })
 
                 .catch((error) => {
                     var errorCode = error.code;
                     var errorMessage = error.message;
                     const userInfo = { ...user }
-                    userInfo.success = false;
+                    userInfo.success = '';
                     userInfo.error = errorMessage;
                     setUser(userInfo);
                 });
@@ -145,17 +148,18 @@ const RegisterForm = () => {
                     const userDetails = userCredential.user;
                     const userInfo = { ...user };
                     userInfo.error = '';
+                    userInfo.success='';
                     userInfo.name = userDetails.displayName;
                     setUser(userInfo)
                     setLogInUser(userInfo)
                     history.replace(from);
                 })
                 .catch((error) => {
-                    setErrors(false)
+                  
                     var errorCode = error.code;
                     var errorMessage = error.message;
                     const userInfo = { ...user }
-                    userInfo.success = false;
+                    userInfo.success = '';
                     userInfo.error = errorMessage;
                     setUser(userInfo);
                     
