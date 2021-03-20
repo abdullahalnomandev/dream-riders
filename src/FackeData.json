@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1,
+        "name": "BIKE",
+        "img": "https://images.carandbike.com/bike-images/medium/bajaj/pulsar-150/bajaj-pulsar-150.webp?v=39",
+
+           "riders":[{"img":"https://images.carandbike.com/bike-images/medium/bajaj/pulsar-150/bajaj-pulsar-150.webp?v=39","shortname":"Bike","provider":4,"amount":66},
+            {"img":"https://images.carandbike.com/bike-images/medium/bajaj/pulsar-150/bajaj-pulsar-150.webp?v=39","shortname":"Bike","provider":3,"amount":47},
+            {"img":"https://images.carandbike.com/bike-images/medium/bajaj/pulsar-150/bajaj-pulsar-150.webp?v=39","shortname":"Bike","provider":5,"amount":27}]
+        
+        
+    }
+    
+    
+    ,
+    {
+        "id": 2,
+        "name": "CAR",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcps3hxyzz4fnkpAw6WuaxeBDFZ2iStn_gDQ&usqp=CAU",
+
+        
+        "riders":[{"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcps3hxyzz4fnkpAw6WuaxeBDFZ2iStn_gDQ&usqp=CAU","shortname":"Car","provider":2,"amount":54},
+            {"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcps3hxyzz4fnkpAw6WuaxeBDFZ2iStn_gDQ&usqp=CAU","shortname":"Car","provider":4,"amount":22},
+            {"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcps3hxyzz4fnkpAw6WuaxeBDFZ2iStn_gDQ&usqp=CAU","shortname":"Car","provider":9,"amount":33}]
+    },
+    {
+        "id": 3,
+        "name": "BUS",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj5A0PyusuN5TZHMLbDG0P4G9E37nkzGzy8A&usqp=CAU",
+
+        "riders":[{"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcps3hxyzz4fnkpAw6WuaxeBDFZ2iStn_gDQ&usqp=CAU","shortname":"Bus","provider":7,"amount":77},
+            {"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcps3hxyzz4fnkpAw6WuaxeBDFZ2iStn_gDQ&usqp=CAU","shortname":"Bus","provider":4,"amount":97},
+            {"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcps3hxyzz4fnkpAw6WuaxeBDFZ2iStn_gDQ&usqp=CAU","shortname":"Bus","provider":3,"amount":37}]
+        
+    },
+    {
+        "id": 4,
+        "name": "TRAIN",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRisJJytXyPOkZUIwkyY6SyMGZkMCGC9EaOJQ&usqp=CAU",
+
+
+        "riders":[{"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRisJJytXyPOkZUIwkyY6SyMGZkMCGC9EaOJQ&usqp=CAU","shortname":"Train","provider":5,"amount":88},
+            {"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRisJJytXyPOkZUIwkyY6SyMGZkMCGC9EaOJQ&usqp=CAU","shortname":"Train","provider":2,"amount":99},
+            {"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRisJJytXyPOkZUIwkyY6SyMGZkMCGC9EaOJQ&usqp=CAU","shortname":"Train","provider":3,"amount":67}]
+    }
+
+    
+]
