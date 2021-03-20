@@ -11,6 +11,7 @@ import RegisterForm from './Components/RegisterForm/RegisterForm';
 import Destination from './Components/Destination/Destination';
 import { createContext, useState } from 'react';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import NotFound from './Components/NotFound/NotFound';
 
 export const UseContext = createContext();
 
@@ -44,6 +45,11 @@ function App() {
 
           <Route exact path="/">
             <Home />
+          </Route>
+
+          
+          <Route exact path="*">
+            <NotFound />
           </Route>
 
         </Switch>
